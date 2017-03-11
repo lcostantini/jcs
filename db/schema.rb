@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309141456) do
+ActiveRecord::Schema.define(version: 20170311213647) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "biddings", force: :cascade do |t|
+    t.string   "code"
+    t.string   "provision_order"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "clients", force: :cascade do |t|
     t.string   "cbu"
@@ -23,6 +47,25 @@ ActiveRecord::Schema.define(version: 20170309141456) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["cbu"], name: "index_clients_on_cbu", unique: true
+  end
+
+  create_table "dispatches", force: :cascade do |t|
+    t.date     "expire_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "providers", force: :cascade do |t|
+    t.string   "cbu"
+    t.string   "account"
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "city"
+    t.integer  "postal_code"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["cbu"], name: "index_providers_on_cbu", unique: true
   end
 
 end
