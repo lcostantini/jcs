@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cbu:</strong>
+  <%= @provider.cbu %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @provider.account %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @provider.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @provider.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @provider.phone %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @provider.city %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @provider.postal_code %>
+</p>
+
+<%= link_to 'Edit', edit_provider_path(@provider) %> |
+<%= link_to 'Back', providers_path %>

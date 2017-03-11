@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @bidding.code %>
+</p>
+
+<p>
+  <strong>Provision order:</strong>
+  <%= @bidding.provision_order %>
+</p>
+
+<%= link_to 'Edit', edit_bidding_path(@bidding) %> |
+<%= link_to 'Back', biddings_path %>
