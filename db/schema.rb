@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311213647) do
+ActiveRecord::Schema.define(version: 20170315135337) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20170311213647) do
     t.string   "provision_order"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "client_id"
+    t.index ["client_id"], name: "index_biddings_on_client_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -53,6 +55,21 @@ ActiveRecord::Schema.define(version: 20170311213647) do
     t.date     "expire_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "bidding_id"
+    t.index ["bidding_id"], name: "index_dispatches_on_bidding_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "price"
+    t.integer  "cost"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "provider_id"
+    t.integer  "dispatch_id"
+    t.index ["dispatch_id"], name: "index_items_on_dispatch_id"
+    t.index ["provider_id"], name: "index_items_on_provider_id"
   end
 
   create_table "providers", force: :cascade do |t|
