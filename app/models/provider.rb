@@ -1,3 +1,3 @@
 class Provider < ApplicationRecord
-  has_many :dispatches
+  has_many :items
 end

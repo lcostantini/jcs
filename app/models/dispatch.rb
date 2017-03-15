@@ -1,4 +1,4 @@
 class Dispatch < ApplicationRecord
   belongs_to :bidding
-  has_many :providers
+  has_many :items
 end
