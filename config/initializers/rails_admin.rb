@@ -1,5 +1,7 @@
 RailsAdmin.config do |config|
 
+  config.main_app_name = ["JCS", "Administrator"]
+
   ### Popular gems integration
 
   ## == Devise ==
@@ -23,16 +25,38 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar true
 
+  config.model Admin do
+    navigation_label 'Administration'
+    weight 10
+  end
+
+  config.model Client do
+    navigation_label 'Administration'
+    weight 10
+  end
+
+  config.model Provider do
+    navigation_label 'Administration'
+    weight 10
+  end
+
+  config.model Dispatch do
+    parent Bidding
+  end
+
+  config.model Item do
+    parent Dispatch
+  end
+
   config.actions do
-    dashboard                     # mandatory
-    index                         # mandatory
+    dashboard
+    index
     new
     export
     bulk_delete
     show
     edit
     delete
-    show_in_app
 
     ## With an audit adapter, you can add:
     # history_index
