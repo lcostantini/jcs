@@ -51,6 +51,14 @@ RailsAdmin.config do |config|
   config.model Dispatch do
     parent Bidding
     exclude_fields :id, :created_at, :updated_at
+
+    list do
+      field :items, :integer do
+        formatted_value do
+          bindings[:object].items.count
+        end
+      end
+    end
   end
 
   config.model Item do
