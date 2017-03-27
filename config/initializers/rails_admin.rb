@@ -39,19 +39,27 @@ RailsAdmin.config do |config|
   config.model Client do
     navigation_label 'Administration'
     weight 10
+    exclude_fields :id, :created_at, :updated_at
   end
 
   config.model Provider do
     navigation_label 'Administration'
     weight 10
+    exclude_fields :id, :created_at, :updated_at
   end
 
   config.model Dispatch do
     parent Bidding
+    exclude_fields :id, :created_at, :updated_at
   end
 
   config.model Item do
     parent Dispatch
+    exclude_fields :id, :created_at, :updated_at
+  end
+
+  config.model Bidding do
+    exclude_fields :id, :created_at, :updated_at
   end
 
   config.actions do
