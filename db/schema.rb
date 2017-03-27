@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321193002) do
+ActiveRecord::Schema.define(version: 20170327165304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170321193002) do
     t.integer  "postal_code"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "cuit"
     t.index ["cbu"], name: "index_clients_on_cbu", unique: true, using: :btree
   end
 
