@@ -58,6 +58,13 @@ RailsAdmin.config do |config|
           bindings[:object].items.count
         end
       end
+
+      field :bidding, :string do
+        formatted_value do
+          bindings[:view].link_to(bindings[:object].bidding.code,
+                                  "/jcs/bidding/#{bindings[:object].bidding.id}")
+        end
+      end
     end
   end
 
