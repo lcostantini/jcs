@@ -28,6 +28,12 @@ RailsAdmin.config do |config|
   config.model Admin do
     navigation_label 'Administration'
     weight 10
+
+    edit do
+      field :email
+      field :password
+      field :password_confirmation
+    end
   end
 
   config.model Client do
@@ -51,7 +57,9 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard
     index
-    new
+    new do
+      except ["Admin"]
+    end
     export
     bulk_delete
     show
