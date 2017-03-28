@@ -69,6 +69,6 @@ class DispatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dispatch_params
-      params.require(:dispatch).permit(:expire_date)
+      params.require(:dispatch).permit(:expire_date, :paid)
     end
 end
