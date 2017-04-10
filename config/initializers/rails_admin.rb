@@ -75,6 +75,12 @@ RailsAdmin.config do |config|
 
   config.model Bidding do
     exclude_fields :id, :created_at, :updated_at
+
+    field :status, :enum do
+      enum_method do
+        :rails_admin_status_enum
+      end
+    end
   end
 
   config.actions do
